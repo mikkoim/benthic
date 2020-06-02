@@ -11,9 +11,9 @@ import os
 import platform
 from PIL import Image
 
+from loadbm import create_df, create_tf_dataset, prepare_for_training
 
 #Load the ready-made splits
-
 if platform.system() == 'Linux':
     datapath = '/home/mikko/Documents/kandi/data/IDA/Separate lists with numbering/Machine learning splits'
     img_path = '/home/mikko/Documents/kandi/data/IDA/Images/'
@@ -21,40 +21,16 @@ else:
     datapath = 'C:\\koodia\\kandi\\FIN Benthic2\\IDA\\Separate lists with numbering\\Machine learning splits'
     img_path = 'C:\\koodia\\kandi\\FIN Benthic2\\IDA\\Images\\'
 
-split = 2
-
-
+split = 1
 test_fname = 'test'+str(split)+'.txt'
 
-df_load = lambda fname: pd.read_csv(os.path.join(datapath,fname),
-                                    delimiter=' ',
-                                    header=None)
+part_dat = True
 
-df_test = df_load(test_fname)
+df_test = create_df(os.path.join(datapath, test_fname),
+                     img_path,
+                     partial_dataset=part_dat,
+                     seed=123)
 
-# take only the first 10% of datasets for testing
-import random
-random.seed(123)
-partial_dataset = True
-if partial_dataset:
-    
-    percent = 0.05
-    
-    d = lambda df: df.loc[random.sample(range(0,len(df)), int(percent*len(df))),:]
-    
-    df_test = d(df_test)
-
-# clean up the splits
-def df_preprocess(df):
-    df = df.iloc[:,[0,1]]
-    df.columns = ["path","label"]
-    df.loc[:,"path"] = df.loc[:,"path"].apply(lambda x: x.replace("\\",os.sep))
-    df['path'] = df['path'].map(lambda x: img_path+x)
-    return df
-
-# The resulting dataframes of the splits
-
-df_test = df_preprocess(df_test)
 
 #%% Loading in memory
 import tensorflow as tf

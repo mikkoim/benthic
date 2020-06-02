@@ -1,0 +1,36 @@
+Train for 10043 steps, validate for 1434 steps
+Epoch 1/10
+10043/10043 [==============================] - 1628s 162ms/step - loss: 0.0027 - accuracy: 0.8350 - val_loss: 0.0047 - val_accuracy: 0.7679
+Epoch 2/10
+10043/10043 [==============================] - 1610s 160ms/step - loss: 8.1580e-04 - accuracy: 0.9522 - val_loss: 0.0044 - val_accuracy: 0.8262
+Epoch 3/10
+10043/10043 [==============================] - 1601s 159ms/step - loss: 4.8807e-04 - accuracy: 0.9730 - val_loss: 0.0033 - val_accuracy: 0.8636
+Epoch 4/10
+10043/10043 [==============================] - 1596s 159ms/step - loss: 3.4619e-04 - accuracy: 0.9812 - val_loss: 0.0030 - val_accuracy: 0.8767
+Epoch 5/10
+10043/10043 [==============================] - 1593s 159ms/step - loss: 2.7985e-04 - accuracy: 0.9852 - val_loss: 0.0032 - val_accuracy: 0.8654
+Epoch 6/10
+10043/10043 [==============================] - 1612s 160ms/step - loss: 2.2327e-04 - accuracy: 0.9882 - val_loss: 0.0034 - val_accuracy: 0.8669
+Epoch 7/10
+10043/10043 [==============================] - 1612s 161ms/step - loss: 2.0088e-04 - accuracy: 0.9899 - val_loss: 0.0044 - val_accuracy: 0.8320
+Epoch 8/10
+10043/10043 [==============================] - 1612s 160ms/step - loss: 1.7902e-04 - accuracy: 0.9913 - val_loss: 0.0054 - val_accuracy: 0.8064
+Epoch 9/10
+10043/10043 [==============================] - 1611s 160ms/step - loss: 1.5662e-04 - accuracy: 0.9922 - val_loss: 0.0038 - val_accuracy: 0.8639
+Epoch 10/10
+10043/10043 [==============================] - 1596s 159ms/step - loss: 1.4898e-04 - accuracy: 0.9930 - val_loss: 0.0044 - val_accuracy: 0.8152
+
+
+Decrease LR to 0.0001 and exponentially decrease:
+
+Train for 10043 steps, validate for 1434 steps
+Epoch 1/5
+10043/10043 [==============================] - 1609s 160ms/step - loss: 0.0039 - accuracy: 0.9993 - val_loss: 0.3579 - val_accuracy: 0.9247
+Epoch 2/5
+10043/10043 [==============================] - 1596s 159ms/step - loss: 9.9305e-04 - accuracy: 0.9998 - val_loss: 0.3850 - val_accuracy: 0.9261
+Epoch 3/5
+10043/10043 [==============================] - 1600s 159ms/step - loss: 5.4951e-04 - accuracy: 0.9999 - val_loss: 0.3917 - val_accuracy: 0.9297
+Epoch 4/5
+10043/10043 [==============================] - 1606s 160ms/step - loss: 4.6909e-04 - accuracy: 0.9999 - val_loss: 0.4272 - val_accuracy: 0.9288
+Epoch 5/5
+10043/10043 [==============================] - 1606s 160ms/step - loss: 3.1874e-04 - accuracy: 0.9999 - val_loss: 0.4205 - val_accuracy: 0.9273

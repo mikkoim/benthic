@@ -10,6 +10,9 @@ import pandas as pd
 import os
 import platform
 
+from loadbm import create_df, create_tf_dataset
+
+
 #Load the ready-made splits
 
 if platform.system() == 'Linux':
@@ -20,88 +23,50 @@ else:
     img_path = 'C:\\koodia\\kandi\\FIN Benthic2\\IDA\\Images\\'
 
 split = 1
-
 test_fname = 'test'+str(split)+'.txt'
 
-df_load = lambda fname: pd.read_csv(os.path.join(datapath,fname),
-                                    delimiter=' ',
-                                    header=None)
+part_dat = False
 
-df_test = df_load(test_fname)
-
-# take only the first 10% of datasets for testing
-import random
-random.seed(123)
-partial_dataset = True
-if partial_dataset:
-    
-    percent = 0.05
-    
-    d = lambda df: df.loc[random.sample(range(0,len(df)), int(percent*len(df))),:]
-    
-    df_test = d(df_test)
-
-# clean up the splits
-def df_preprocess(df):
-    df = df.iloc[:,[0,1]]
-    df.columns = ["path","label"]
-    df.loc[:,"path"] = df.loc[:,"path"].apply(lambda x: x.replace("\\",os.sep))
-    df['path'] = df['path'].map(lambda x: img_path+x)
-    return df
-
-# The resulting dataframes of the splits
-
-df_test = df_preprocess(df_test)
+df_test = create_df(os.path.join(datapath, test_fname),
+                     img_path,
+                     partial_dataset=part_dat,
+                     seed=123)
 
 #%% Create TF dataloader
-from sklearn.preprocessing import LabelBinarizer
 
-lb = LabelBinarizer().fit(np.arange(1,40))
+IMSIZE = (224,224,3)
+BATCH_SIZE = 32
 
-IMG_WIDTH = 224
-IMG_HEIGHT = 224
-BATCH_SIZE = 8
-AUTOTUNE = tf.data.experimental.AUTOTUNE
-
-def decode_img(img):
-    # convert the compressed string to a 3D uint8 tensor
-    img = tf.image.decode_jpeg(img, channels=3)
-    # Use `convert_image_dtype` to convert to floats in the [0,1] range.
-    img = tf.image.convert_image_dtype(img, tf.float32)
-    # resize the image to the desired size.
-    return tf.image.resize(img, [IMG_WIDTH, IMG_HEIGHT])
-
-def process_path(filename, label):
-    
-    img = tf.io.read_file(filename)
-    img = decode_img(img)
-    
-    return img, label
-
-make_dataset = lambda df: tf.data.Dataset.from_tensor_slices((df.path,df.label))
-
-test_ds = make_dataset(df_test).map(process_path, num_parallel_calls=AUTOTUNE)
+test_ds = create_tf_dataset(df_test, imsize=IMSIZE, onehot=True)
+test_ds = test_ds.batch(BATCH_SIZE)
 ##
 
 #%% Evaluation
 
+modelpth = 'D:\\Users\\Mikko Impiö\\kandi\\models'
+
 from tensorflow.keras.models import load_model
-model = load_model('09-01-2020.h5')
+model = load_model(os.path.join(modelpth,'09-02-2020_cont_colab.h5'))
 
-test_ds = test_ds.batch(BATCH_SIZE)
+preds = model.predict(test_ds, verbose=True)
 
-preds = model2.predict(test_ds, verbose=1)
+yhat = np.argmax(preds,axis=1)+1
 
-model.evaluate(test_ds)
+y_test = df_test['label']
 
-#%%
+#%% Insect combine
 
-take_test = test_ds.take(8)
+from combine_insects import add_insect_class, add_yhat
 
-it = iter(take_test)
+df_test_preds = add_insect_class(df_test)
 
-for t in it:
-    print(t[1])
+# adding predictions to dataframe for insect-wise prediction
+df_test_preds = add_yhat(df_test_preds,yhat)
 
+dfg = df_test_preds.groupby(['label','insect'],as_index=False)['pred'].agg(lambda x:x.value_counts().index[0])
 
-loss = tf.keras.losses.categorical_crossentropy
+acc = np.sum(yhat==y_test)/len(y_test)
+print('Image accuracy: {:.4f}'.format(acc))
+
+acc_g = np.sum(dfg['pred']==dfg['label'])/len(dfg)
+print('Aggregate accuracy: {:.4f}'.format(acc_g))

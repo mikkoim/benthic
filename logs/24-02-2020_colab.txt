@@ -1,0 +1,21 @@
+Train for 12919 steps, validate for 1434 steps
+Epoch 1/10
+12919/12919 [==============================] - 2080s 161ms/step - loss: 0.3843 - accuracy: 0.8814 - val_loss: 11.3775 - val_accuracy: 0.0073
+Epoch 2/10
+12919/12919 [==============================] - 2070s 160ms/step - loss: 0.3400 - accuracy: 0.8982 - val_loss: 21.1499 - val_accuracy: 0.0075
+Epoch 3/10
+12919/12919 [==============================] - 2069s 160ms/step - loss: 0.1352 - accuracy: 0.9612 - val_loss: 25.1783 - val_accuracy: 0.0115
+Epoch 4/10
+12919/12919 [==============================] - 2068s 160ms/step - loss: 0.0698 - accuracy: 0.9800 - val_loss: 28.1608 - val_accuracy: 0.0168
+Epoch 5/10
+12919/12919 [==============================] - 2067s 160ms/step - loss: 0.0472 - accuracy: 0.9868 - val_loss: 24.2039 - val_accuracy: 0.0174
+Epoch 6/10
+12919/12919 [==============================] - 2067s 160ms/step - loss: 0.0416 - accuracy: 0.9883 - val_loss: 37.0817 - val_accuracy: 0.0080
+Epoch 7/10
+12919/12919 [==============================] - 2063s 160ms/step - loss: 0.0344 - accuracy: 0.9909 - val_loss: 52.0442 - val_accuracy: 0.0118
+Epoch 8/10
+12919/12919 [==============================] - 2067s 160ms/step - loss: 0.0290 - accuracy: 0.9923 - val_loss: 12.6549 - val_accuracy: 0.0968
+Epoch 9/10
+12919/12919 [==============================] - 2064s 160ms/step - loss: 0.0253 - accuracy: 0.9932 - val_loss: 12.6939 - val_accuracy: 0.1092
+Epoch 10/10
+12919/12919 [==============================] - 2063s 160ms/step - loss: 0.0213 - accuracy: 0.9941 - val_loss: 24.0509 - val_accuracy: 0.0863

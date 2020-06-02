@@ -1,0 +1,35 @@
+Train for 10043 steps, validate for 1434 steps
+Epoch 1/10
+10043/10043 [==============================] - 1644s 164ms/step - loss: 0.4357 - accuracy: 0.8610 - val_loss: 0.6995 - val_accuracy: 0.7988
+Epoch 2/10
+10043/10043 [==============================] - 1622s 161ms/step - loss: 0.1092 - accuracy: 0.9643 - val_loss: 0.8251 - val_accuracy: 0.8123
+Epoch 3/10
+10043/10043 [==============================] - 1623s 162ms/step - loss: 0.0636 - accuracy: 0.9796 - val_loss: 0.6163 - val_accuracy: 0.8611
+Epoch 4/10
+10043/10043 [==============================] - 1617s 161ms/step - loss: 0.0453 - accuracy: 0.9855 - val_loss: 0.5803 - val_accuracy: 0.8759
+Epoch 5/10
+10043/10043 [==============================] - 1621s 161ms/step - loss: 0.0355 - accuracy: 0.9886 - val_loss: 0.6085 - val_accuracy: 0.8781
+Epoch 6/10
+10043/10043 [==============================] - 1623s 162ms/step - loss: 0.0297 - accuracy: 0.9906 - val_loss: 0.5737 - val_accuracy: 0.8778
+Epoch 7/10
+10043/10043 [==============================] - 1616s 161ms/step - loss: 0.0249 - accuracy: 0.9922 - val_loss: 0.6081 - val_accuracy: 0.8811
+Epoch 8/10
+10043/10043 [==============================] - 1621s 161ms/step - loss: 0.0222 - accuracy: 0.9931 - val_loss: 0.7000 - val_accuracy: 0.8716
+Epoch 9/10
+10043/10043 [==============================] - 1625s 162ms/step - loss: 0.0196 - accuracy: 0.9940 - val_loss: 1.0699 - val_accuracy: 0.8208
+Epoch 10/10
+10043/10043 [==============================] - 1627s 162ms/step - loss: 0.0177 - accuracy: 0.9946 - val_loss: 1.1627 - val_accuracy: 0.8282
+
+
+Train for 10043 steps, validate for 1434 steps
+Epoch 1/5
+10043/10043 [==============================] - 1634s 163ms/step - loss: 0.0025 - accuracy: 0.9992 - val_loss: 0.4836 - val_accuracy: 0.9233
+Epoch 2/5
+10043/10043 [==============================] - 1625s 162ms/step - loss: 6.4301e-04 - accuracy: 0.9998 - val_loss: 0.4885 - val_accuracy: 0.9245
+Epoch 3/5
+10043/10043 [==============================] - 1624s 162ms/step - loss: 4.5217e-04 - accuracy: 0.9999 - val_loss: 0.4891 - val_accuracy: 0.9277
+Epoch 4/5
+10043/10043 [==============================] - 1620s 161ms/step - loss: 2.7859e-04 - accuracy: 0.9999 - val_loss: 0.5077 - val_accuracy: 0.9296
+Epoch 5/5
+10043/10043 [==============================] - 1620s 161ms/step - loss: 2.8322e-04 - accuracy: 0.9999 - val_loss: 0.5191 - val_accuracy: 0.9297
+<tensorflow.python.keras.callbacks.History at 0x7fc23b6a0358>
