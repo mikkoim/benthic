@@ -7,6 +7,8 @@ This thesis has two main themes:  analyzing the suitability of different perform
 Thesis:
 https://trepo.tuni.fi/bitstream/handle/10024/122275/Impi%C3%B6Mikko.pdf
 
-This repo is still a work in progress and needs to be cleaned up further. Information on models can be found from ```notebooks/models.csv```, and the accompanying notebooks from the same folder. Most of the notebooks are self-contained, and can be run for example in Google Colab.
+This repo is still a work in progress and needs to be cleaned up further. Information on models can be found from ```benthic/notebooks/models.csv```, and the accompanying notebooks from the same folder. Most of the notebooks are self-contained, and can be run for example in Google Colab.
 
+A good starting point might be the reference model notebook ```benthic/notebooks/18_01_2020_colab_splitN.ipynb ```
+ 
 The data used in the experiments can be downloaded from https://etsin.fairdata.fi/dataset/a11cdc26-b9d0-4af1-9285-803d65a696a3
