@@ -1,0 +1,24 @@
+﻿Name,epochs,Dataloader,Label type,Lossfunction,Gamma,Alpha,Loss,Accuracy,Val loss,Val accuracy,Architecture,Layers trained,Dataset,Batch,notes
+09-01-2020,1,tf.dataset,Number,CE,,,2738,0.66,2804,1,InceptionV3,Full,Partial 5%,8,
+10-01-2020,30,python generator,One-hot,CE,,,0.21,0.9593,1.2974,0.7251000000000001,InceptionV3,Full,Partial 5%,8,
+11-01-2020,30,tf.dataset,One-hot,CE,,,0.16,0.9464,1.63,0.6875,InceptionV3,Full,Partial 5%,8,
+12-01-2020_2old,20+37,tf.dataset,One-hot,CE,,,1.51,0.5449,3.6,0.25,InceptionV3,20epoch only classification + 38epoch full (huom 13.1.),Partial 5%,8,
+12-01-2020_2,5+20,tf.dataset,One-hot,CE,,,0.14,0.9504,1.17,0.743,InceptionV3,5epoch only classification + 20epoch full,Partial 5%,8,
+13-01-2020_6epoch,6,tf.dataset,One-hot,CE,,,0.0685,0.9776,0.95,0.8209000000000001,InceptionV3,Full,Full data,8,
+13-01-2020_cont,6+2,tf.dataset,One-hot,CE,,,0.0054,0.9964,0.86,0.8527,InceptionV3,Full,Full data,8,learning rate decreased to 0.0001 for 2 epochs
+17-01-2020_colab,10,tf.dataset,One-hot,CE,,,0.013,0.9959,0.7786,0.8526,InceptionV3,Full,Full data,256,
+18-01-2020_colab,10,tf.dataset,One-hot,CE,,,0.0173,0.9948,0.5623,0.8909,InceptionV3,Full,Full data,32,
+18-01-2020_REF,10+5,tf.dataset,One-hot,CE,,,0.0026,0.9998999999999999,0.4823,0.9274,InceptionV3,Full,Full data,32,"REFERENCE
+Learning rate decreased to 0.0001 and exponentially lowered for last 5 epochs"
+22-01-2020_focalstock,10+5,tf.dataset,One-hot,FocalLoss stock,2,0.25,0.00031874,0.9998999999999999,0.4205,0.9273,InceptionV3,Full,Full data,32,Focalstock
+24-01-2020_freeze,10+10+5,tf.dataset,One-hot,CE,,,,,,,InceptionV3,,Full data,32,Did not finish
+26-01-2020_ref_p5,30,tf.dataset,One-hot,CE,,,0.0584,0.9801000000000001,1.0111,0.7839,InceptionV3,Full,Partial 5%,32,"Same as 11-01-2020, but with batch=32
+18-01-ref 5% counterpart"
+09-02-2020_FL,10+5,tf.dataset,One-hot,Focal Loss,2,freq,0.00014602,0.9998999999999999,0.2342,0.9292,InceptionV3,Full,Full data,32,FL
+10_02_2020_augment,10+5,tf.dataset,One-hot,CE,,,0.00028322,0.9998999999999999,0.5191,0.9297,InceptionV3,Full,Augmented,32,Same as 18-01-ref but with augmentation
+24_02_oversample,10,tf.dataset,One-hot,CE,,,0.0213,0.9941,24.0509,0.0863,InceptionV3,Full,Augment + Oversample,32,poor performance
+29_02_augment-cont,18_01 + 20,tf.dataset,One-hot,CE,,,0.1422,0.9852,0.8193,0.868,InceptionV3,Classification,Augment + Oversample,32,
+31-xx-focalstock_5p,30,tf.dataset,One-hot,FocalLoss stock,2,0.25,0.0177,0.9753000000000001,0.2204,0.7663,InceptionV3,Full,Partial 5%,32,22-01-focalstock 5% counterpart
+32-xx-FL-g1,10+5,tf.dataset,One-hot,Focal Loss,1,freq,0.00018647,0.9998999999999999,0.2861,0.9299,InceptionV3,Full,Full data,32,
+33-xx-FL-g0-a1,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
